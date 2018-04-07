@@ -13,7 +13,7 @@
         $regulations_gov_api_key = $yaml_data['regulations_gov_api_key'];
 
         $test_project_id = 'geekoffthestreet-200406';
-        $test_bucket_id = 'geek_off_the_street_test';
+        $test_bucket_id = 'geek_off_the_street';
 
 
 	$dockets = glob('./data/docket*.json');
