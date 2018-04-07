@@ -1,17 +1,17 @@
 <?php
-require 'vendor/autoload.php';
+	require 'vendor/autoload.php';
 
-use Google\Cloud\Core\ServiceBuilder;
-use Google\Cloud\Storage\StorageClient;
-use Symfony\Component\Yaml\Yaml;
+	use Google\Cloud\Core\ServiceBuilder;
+	use Google\Cloud\Storage\StorageClient;
+	use Symfony\Component\Yaml\Yaml;
 
-putenv('GOOGLE_APPLICATION_CREDENTIALS=./google_keyfile.json');
+	putenv('GOOGLE_APPLICATION_CREDENTIALS=./google_keyfile.json');
 
 	$yaml_data = Yaml::parseFile('./regulations.gov.api.yaml');	
 	$regulations_gov_api_key = $yaml_data['regulations_gov_api_key'];
 
-	$test_project_id = 'geekoffthestreet-200406';
-	$test_bucket_id = 'geek_off_the_street_test';
+	$project_id = 'geekoffthestreet-200406';
+	$bucket_id = 'geek_off_the_street';
 	$test_docket_id = 'NOAA-NMFS-2018-0028'; //this is docket does not have many comments...
 	$test_docket_id = 'DEA-2016-0015'; //this is the real target...	
 
@@ -28,8 +28,8 @@ putenv('GOOGLE_APPLICATION_CREDENTIALS=./google_keyfile.json');
 	$result_url_array = search_dockets(
 						$search_term,
 						$regulations_gov_api_key,
-						$test_project_id,
-						$test_bucket_id);
+						$project_id,
+						$bucket_id);
 
 
 
