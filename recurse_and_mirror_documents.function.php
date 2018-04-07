@@ -25,14 +25,14 @@ if($argv[0] == basename(__FILE__)){
 						$test_bucket_id);
 
 	$right_answer_urls = [
-		"https://storage.googleapis.com/geek_off_the_street_test/DEA-2016-0015-0006.json",
-		"https://storage.googleapis.com/geek_off_the_street_test/DEA-2016-0015-0006.pdf",
-		"https://storage.googleapis.com/geek_off_the_street_test/DEA-2016-0015-0006.html",	
+		"https://storage.googleapis.com/geek_off_the_street_test/doc.DEA-2016-0015-0006.json",
+		"https://storage.googleapis.com/geek_off_the_street_test/doc.DEA-2016-0015-0006.pdf",
+		"https://storage.googleapis.com/geek_off_the_street_test/doc.DEA-2016-0015-0006.html",	
 		];
 	
 	foreach($result_url_array as $pos => $result_url){
 		$right_answer_url = $right_answer_urls[$pos];
-		if($right_answer_url == $result_url_array[0]){
+		if($right_answer_url == $result_url){
 			echo "Success!! got $result_url which is what I expected\n";
 		}else{
 			echo "Fail!! got \n$result_url\nexpected\n$right_answer_url\n";
@@ -54,7 +54,7 @@ if($argv[0] == basename(__FILE__)){
 
 		$Bucket = $Storage->bucket($bucket_string);
 
-		$file_name = "$document_id.json";
+		$file_name = "doc.$document_id.json";
 
 		$my_storage_object = $Bucket->upload(
 			$json_text,
@@ -64,6 +64,9 @@ if($argv[0] == basename(__FILE__)){
         			'validate' => true,
     			]
 		);
+
+		//save a local copy...
+		file_put_contents("./data/$file_name",$json_text);
 		
 		//do we have pdf/html?
 		$json_data = json_decode($json_text,true);
@@ -77,7 +80,7 @@ if($argv[0] == basename(__FILE__)){
 				parse_str($parse_url['query'],$query_array);
 				$file_type = $query_array['contentType']; //this will tell us if it is a pdf or html or whathaveyou...
 
-				$this_file_name = "$document_id.$file_type";
+				$this_file_name = "doc.$document_id.$file_type";
 				$with_key_url = $content_url . "&api_key=$regulation_gov_api_key";
 
 
@@ -92,6 +95,10 @@ if($argv[0] == basename(__FILE__)){
         					'validate' => true,
     					]
 				);
+
+				//save a local copy..
+				file_put_contents("./data/$this_file_name",$file_data);
+
 
 				$file_url = "https://storage.googleapis.com/$bucket_string/$this_file_name";
 				$return_array[] = $file_url;
