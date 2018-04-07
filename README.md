@@ -13,13 +13,12 @@ Installation
 ================
 
 * We want to install protobuffer because it might make using google cloud a little cheaper. Just in case...
-* `composer require google/cloud`
 * `sudo apt-get install php7.0-dev` So that we have phpize...
 * `sudo apt-get install libz-dev` Jesus who gets make errors anymore...
 * `sudo pecl channel-update pecl.php.net` which we will need to update pecl
 * `sudo pecl install grpc`
-* `composer require "grpc/grpc:^v1.1.0"` following these instructions https://cloud.google.com/php/grpc
 * `sudo pecl install protobuf` 
+* `composer install` should read the contents of the composer.json and get you all up to speed...
 * Add the following lines to your cli php.ini
 ```
 extension=grpc.so
