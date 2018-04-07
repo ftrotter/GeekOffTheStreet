@@ -15,7 +15,7 @@ if($argv[0] == basename(__FILE__)){
 	$test_project_id = 'geekoffthestreet-200406';
 	$test_bucket_id = 'geek_off_the_street_test';
 	$test_docket_id = 'NOAA-NMFS-2018-0028'; //this is docket does not have many comments...
-		
+	$test_docket_id = 'DEA-2016-0015'; //this is the real target...	
 
 	//then this is test mode, as the file was called directly...
 	$result_url_array = recurse_and_mirror_docket(
@@ -41,15 +41,15 @@ if($argv[0] == basename(__FILE__)){
 
 			$json_data = get_one_docket_page($docket_id,$regulation_gov_api_key,$project_id,$bucket_string,$current_page);
 			
-			if(count($json_data) < 1000){
+			if(count($json_data['documents']) < 1000){
 				//then we are done...
 				$has_more = false;
-			}else{
-				$current_page++;
 			}
 
+			$current_page = $current_page + 1000;
+
 			//just do one for now..
-			$has_more = false;
+			//$has_more = false;
 
 		}
 
