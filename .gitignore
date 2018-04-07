@@ -19,5 +19,6 @@ Homestead.json
 # Rocketeer PHP task runner and deployment package. https://github.com/rocketeers/rocketeer
 .rocketeer/
 
-# Specific to this project...
+# Specific to this project... serves to ensure that credentials do not end up in git...
 google_keyfile.json
+*.yaml
