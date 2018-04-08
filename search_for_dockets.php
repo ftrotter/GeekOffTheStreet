@@ -79,6 +79,7 @@
 
 		$url = "https://api.data.gov:443/regulations/v3/documents.json?api_key=$regulation_gov_api_key&countsOnly=0&s=$ue_search_term&dct=$this_search_type&cp=C&rpp=1000&po=$page_num&sb=docId&so=ASC";
 
+                check_throttle(); //this might pause for an hour, to respect rate limit.
 		$json_text = file_get_contents($url);
 
 		$Storage = new StorageClient([

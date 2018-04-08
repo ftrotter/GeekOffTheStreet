@@ -46,6 +46,7 @@ if($argv[0] == basename(__FILE__)){
 
 		$url = "https://api.data.gov:443/regulations/v3/document.json?api_key=$regulation_gov_api_key&documentId=$document_id";
 
+                check_throttle(); //this might pause for an hour, to respect rate limit.
 		$json_text = file_get_contents($url);
 
 		$Storage = new StorageClient([
@@ -83,7 +84,7 @@ if($argv[0] == basename(__FILE__)){
 				$this_file_name = "doc.$document_id.$file_type";
 				$with_key_url = $content_url . "&api_key=$regulation_gov_api_key";
 
-
+		                check_throttle(); //this might pause for an hour, to respect rate limit.
 				$file_data = file_get_contents($with_key_url);
 
 
