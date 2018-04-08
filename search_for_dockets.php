@@ -1,5 +1,6 @@
 <?php
 	require 'vendor/autoload.php';
+	require_once('throttling.function.php');
 
 	use Google\Cloud\Core\ServiceBuilder;
 	use Google\Cloud\Storage\StorageClient;

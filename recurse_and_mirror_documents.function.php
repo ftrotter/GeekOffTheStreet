@@ -1,11 +1,11 @@
 <?php
-require 'vendor/autoload.php';
+	require 'vendor/autoload.php';
+	require_once('throttling.function.php');
+	use Google\Cloud\Core\ServiceBuilder;
+	use Google\Cloud\Storage\StorageClient;
+	use Symfony\Component\Yaml\Yaml;
 
-use Google\Cloud\Core\ServiceBuilder;
-use Google\Cloud\Storage\StorageClient;
-use Symfony\Component\Yaml\Yaml;
-
-putenv('GOOGLE_APPLICATION_CREDENTIALS=./google_keyfile.json');
+	putenv('GOOGLE_APPLICATION_CREDENTIALS=./google_keyfile.json');
 
 if($argv[0] == basename(__FILE__)){
 	
