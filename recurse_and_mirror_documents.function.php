@@ -48,6 +48,12 @@ if($argv[0] == basename(__FILE__)){
 
                 check_throttle(); //this might pause for an hour, to respect rate limit.
 		$json_text = file_get_contents($url);
+		if($http_response_header[0] == 'HTTP/1.1 429 Too Many Requests'){
+			echo "Wait 70 min\n";
+			sleep(4200);
+			//lets start over from scratch...
+			return(recurse_and_mirror_documents($document_id,$regulation_gov_api_key,$project_id,$bucket_string));
+		}
 
 		$Storage = new StorageClient([
     			'projectId' => $project_id,
@@ -86,7 +92,12 @@ if($argv[0] == basename(__FILE__)){
 
 		                check_throttle(); //this might pause for an hour, to respect rate limit.
 				$file_data = file_get_contents($with_key_url);
-
+                		if($http_response_header[0] == 'HTTP/1.1 429 Too Many Requests'){
+                        		echo "Wait 70 min\n";
+                        		sleep(4200);
+                        		//lets start over from scratch...
+                        		return(recurse_and_mirror_documents($document_id,$regulation_gov_api_key,$project_id,$bucket_string));
+                		}
 
 				$tmp_storage_object = $Bucket->upload(
 					$file_data,

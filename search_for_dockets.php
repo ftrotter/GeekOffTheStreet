@@ -81,6 +81,13 @@
 
                 check_throttle(); //this might pause for an hour, to respect rate limit.
 		$json_text = file_get_contents($url);
+                if($http_response_header[0] == 'HTTP/1.1 429 Too Many Requests'){
+                        echo "Wait 70 min\n";
+                        sleep(4200);
+                        //lets start over from scratch...
+			return(get_one_search_page($search_term,$this_search_type,$regulation_gov_api_key,$project_id,$bucket_string,$page_num));
+                }
+
 
 		$Storage = new StorageClient([
     			'projectId' => $project_id,
