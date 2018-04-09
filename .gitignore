@@ -22,4 +22,7 @@ Homestead.json
 # Specific to this project... serves to ensure that credentials do not end up in git...
 google_keyfile.json
 *.yaml
-/data/*
+/data/*.json
+/data/*.pdf
+/data/*.html
+/data/*.zip
