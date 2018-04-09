@@ -23,7 +23,7 @@
 	}else{
 		$search_term = $argv[1];
 	}
-	
+
 
 	//then this is test mode, as the file was called directly...
 	$result_url_array = search_dockets(
