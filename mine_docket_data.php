@@ -30,21 +30,21 @@
 			$doc_id = $this_document['documentId'];
 			if(isset($this_document['commentText'])){
 				$doc_comment = $this_document['commentText'];
-			}else{
-				//this document is something else... 
-				//lets mine it specifically...
-					echo 'D';
-				        $result_url_array = recurse_and_mirror_documents(
-                                                $doc_id,
-                                                $regulations_gov_api_key,
-                                                $test_project_id,
-                                                $test_bucket_id);
-			}
-			if(!isset($unique_document[$doc_id])){
 				$unique_document[$doc_id] = $doc_comment;
 				echo '.';
 			}else{
-				echo 'x';
+				//this document is something else... 
+				//lets mine it specifically...
+					if(file_exists("./data/doc.$doc_id.json")){
+						echo 'd'; //this has already been downloaded...
+					}else{
+						echo 'D';				
+				       	 	$result_url_array = recurse_and_mirror_documents(
+                                       	         	$doc_id,
+                                                	$regulations_gov_api_key,
+                                                	$test_project_id,
+                                                	$test_bucket_id);
+					}
 			}
 		}
 		
