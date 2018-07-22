@@ -12,21 +12,15 @@ Because apparently I have to.
 Installation
 ================
 
-* We want to install protobuffer because it might make using google cloud a little cheaper. Just in case...
-* `sudo apt-get install php7.0-dev` So that we have phpize...
-* `sudo apt-get install libz-dev` Jesus who gets make errors anymore...
-* `sudo pecl channel-update pecl.php.net` which we will need to update pecl
-* `sudo pecl install grpc`
-* `sudo pecl install protobuf` 
-* `composer install` should read the contents of the composer.json and get you all up to speed...
-* Add the following lines to your cli php.ini
-```
-extension=grpc.so
-extension=protobuf.so
-```
+This should run out of the box with php 7
 
-You should be goodo to go... the jury is out whether installing grpc and protobuf actually have any benifit for this project.
-https://github.com/GoogleCloudPlatform/google-cloud-php/issues/999
+First install composer if you have not already..
+
+From the command prompt
+
+`
+$ composer install
+`
 
 Setup API credentials
 =============
@@ -65,6 +59,15 @@ So basically, the workflow goes...
 3. use mine_docket_data.php to ensure that you have all of the pdfs and html that is associated with your documents.
 
 Eventually we will have some code in here to respect the API rate-limiting
+
+These are all command line programs http://linuxcommand.org/
+To run them type the following commands from your clone of the github repo:
+
+`
+php search_for_dockets 'your search term'
+php mine_searches_data.php
+php mine_docket_data.php
+`
 
 
 
