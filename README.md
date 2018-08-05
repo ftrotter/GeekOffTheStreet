@@ -66,5 +66,9 @@ So basically, the workflow goes...
 
 Eventually we will have some code in here to respect the API rate-limiting
 
+Also see...
+=============
+
+The spiritual predecesor to the [Mirrulations Project](https://github.com/MoravianCollege/mirrulations)
 
 
