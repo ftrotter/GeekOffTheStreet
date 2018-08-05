@@ -26,3 +26,4 @@ data/*.json
 data/*.pdf
 data/*.html
 data/*.zip
+data/*.crtext
