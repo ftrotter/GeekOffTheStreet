@@ -1,3 +1,5 @@
+Regulations Comments Data ReadMe
+================================
 
 This data directory contains the raw results of docket and document queries made against the regulations.gov API. 
 Data from the federal register is available in bulk, from URLS like this: 
@@ -27,7 +29,7 @@ Some comments however, are only availble as uploaded PDF or word document (etc) 
 in order to get the url needed to download the pdf (or whatever) in question. GeekOnTheStreet only downloads the comment API data when it needs to, in order to get the comment text. 
 
 Search result data
-========
+--------------
 Files that begin with 'search' are the results of searches against the API search https://api.data.gov/regulations/v3/documents.json
 The search functionality is largely equivlent to the advanced search functionality here: https://www.regulations.gov/advancedSearch
 But for the most part, the automations of GeekOffTheStreet, simply throws a simple term into one end, and
@@ -44,7 +46,7 @@ The thing that lives after the type, is the type of search it was, which can be
 The searches will return a list of documents, with each document linking to a docket id
 
 Docket data
-=======
+----------
 This data files takes the form docket.FTC-Blah-Blah-Blah-2018-XXXX.1000.json 
 it always starts with docket.
 Then the agency and docketid, followed by a period. 
@@ -54,7 +56,7 @@ The vast majority of the comments will be contained in these docket files, espec
 
 
 Document data
-=============
+------------
 Counterinutitively these are relatively rare. Gathered only when the docket record did not contain the comment. 
 These can include json, html, and pdf/whatever data. 
 
