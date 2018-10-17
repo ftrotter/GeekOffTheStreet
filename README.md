@@ -68,8 +68,15 @@ php mine_docket_data.php
 
 These are all command line programs http://linuxcommand.org/
 
+Understanding the data results
+============
+Take a look at the [Data Directory README](DATA_DIR_README.md)
+
 Also see...
 =============
 
 The spiritual predecesor to the [Mirrulations Project](https://github.com/MoravianCollege/mirrulations)
+
+
+
 
