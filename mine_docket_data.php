@@ -18,7 +18,7 @@
         $test_bucket_id = 'geek_off_the_street';
 
 
-	$dockets = glob('./data/docket.FDA*.json');
+	$dockets = glob('./data/docket.NPS*.json');
 
 	$unique_documents = [];
 

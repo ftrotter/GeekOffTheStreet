@@ -13,8 +13,6 @@
 
 	$project_id = 'geekoffthestreet-200406';
 	$bucket_id = 'geek_off_the_street';
-	$test_docket_id = 'NOAA-NMFS-2018-0028'; //this is docket does not have many comments...
-	$test_docket_id = 'DEA-2016-0015'; //this is the real target...	
 
 
 	if(!isset($argv[1])){
