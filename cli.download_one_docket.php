@@ -27,7 +27,7 @@
 	$this_docket_id = $argv[1];
 
 	$arg_array = explode('-',$this_docket_id);
-	if(count($arg_array) != 3){
+	if(count($arg_array) < 3){
 		echo "Error: you gave $this_docket_id, but we are expecting something in the form ABC-2018-XXXX where ABC is the agency, then the year, and then four digits\n";
 		exit();
 	}
