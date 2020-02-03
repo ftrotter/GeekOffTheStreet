@@ -18,6 +18,12 @@ if($argv[0] == basename(__FILE__)){
 	$test_docket_id = 'NOAA-NMFS-2018-0028'; //this is docket does not have many comments...
 	$test_docket_id = 'DEA-2016-0015'; //this is the real target...	
 
+	//accept the docket as a command line argument
+	if(isset($argv[1])){
+		$test_docket_id = $argv[1];
+	}
+
+
 	//then this is test mode, as the file was called directly...
 	$result_url_array = recurse_and_mirror_docket(
 						$test_docket_id,
