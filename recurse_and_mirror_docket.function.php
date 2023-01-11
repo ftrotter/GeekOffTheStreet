@@ -20,13 +20,13 @@ if($argv[0] == basename(__FILE__)){
 
 	//accept the docket as a command line argument
 	if(isset($argv[1])){
-		$test_docket_id = $argv[1];
+		$manual_docket_id = $argv[1];
 	}
 
 
 	//then this is test mode, as the file was called directly...
 	$result_url_array = recurse_and_mirror_docket(
-						$test_docket_id,
+						$manual_docket_id,
 						$regulations_gov_api_key,
 						$test_project_id,
 						$test_bucket_id);
