@@ -62,11 +62,11 @@ So basically, the workflow goes...
 
 Eventually we will have some code in here to respect the API rate-limiting
 
-`
+```
 php search_for_dockets 'your search term'
 php mine_searches_data.php
 php mine_docket_data.php
-`
+```
 
 These are all command line programs http://linuxcommand.org/
 
