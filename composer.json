@@ -2,6 +2,7 @@
     "require": {
         "google/cloud": "^0.59.0",
         "grpc/grpc": "^v1.1.0",
-        "symfony/yaml": "^4.0"
+        "symfony/yaml": "^4.0",
+	"google/protobuf": "^3.19.4 "
     }
 }
