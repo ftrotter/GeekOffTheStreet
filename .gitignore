@@ -23,3 +23,6 @@ Homestead.json
 google_keyfile.json
 *.yaml
 data/*
+
+
+.DS_Store
