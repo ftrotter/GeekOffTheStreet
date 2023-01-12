@@ -28,6 +28,7 @@ db = database['db']
 sql_url = f"mysql+pymysql://{username}:{password}@{server}:{port}/{db}"
 
 engine = sqlalchemy.create_engine(sql_url)
+conn = engine.connect()
 
 #From here on down, we can do anything that Pandas and SQLAlchemy can do
 #With data from the MySQL database.
@@ -79,6 +80,7 @@ VALUES
 
 """
             print(replace_sql)
+            conn.execute(replace_sql)
         else:
             print(f"comment is None in {file_name}")
     else:
