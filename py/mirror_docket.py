@@ -88,7 +88,7 @@ class Reg:
 
 
                     response = requests.get(file_url)
-                    attach_file = open(f"{dir_to_save_to}{comment_id}.attachment_{i}.{format}", 'wb')
+                    attach_file = open(f"{dir_to_save_to}{comment_id}.attachment_{i}.{file_type}", 'wb')
                     attach_file.write(response.content)
                     attach_file.close()
                     print("\t\tAttachment ", i, " downloaded")
