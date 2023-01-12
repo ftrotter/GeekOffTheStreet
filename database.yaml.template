@@ -1,0 +1,5 @@
+username: geek
+password: 'REPLACEME'
+server: localhost
+port: 3306
+db: geek
