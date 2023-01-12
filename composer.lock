@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "670132c6cfb444ab42e7ba8e474c07cc",
+    "content-hash": "cb8beee34358652cce5028a184c13507",
     "packages": [
         {
             "name": "firebase/php-jwt",
@@ -289,21 +289,21 @@
         },
         {
             "name": "google/gax",
-            "version": "0.31.4",
+            "version": "0.31.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/gax-php.git",
-                "reference": "68058c3199ceacb379b32a6ec4bc31a2d17317bc"
+                "reference": "cae100c34c518e150db4adb6a1cfa6d5335d63f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/gax-php/zipball/68058c3199ceacb379b32a6ec4bc31a2d17317bc",
-                "reference": "68058c3199ceacb379b32a6ec4bc31a2d17317bc",
+                "url": "https://api.github.com/repos/googleapis/gax-php/zipball/cae100c34c518e150db4adb6a1cfa6d5335d63f9",
+                "reference": "cae100c34c518e150db4adb6a1cfa6d5335d63f9",
                 "shasum": ""
             },
             "require": {
                 "google/auth": "^1.2.0",
-                "google/protobuf": "3.5.*",
+                "google/protobuf": "^3.5.1",
                 "grpc/grpc": "^1.4",
                 "guzzlehttp/promises": "^1.3",
                 "guzzlehttp/psr7": "^1.2",
@@ -340,7 +340,7 @@
                 "issues": "https://github.com/googleapis/gax-php/issues",
                 "source": "https://github.com/googleapis/gax-php/tree/0.31.x"
             },
-            "time": "2018-06-07T18:26:01+00:00"
+            "time": "2018-04-17T15:26:29+00:00"
         },
         {
             "name": "google/proto-client",
@@ -389,23 +389,23 @@
         },
         {
             "name": "google/protobuf",
-            "version": "v3.5.2",
+            "version": "v3.21.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/protocolbuffers/protobuf-php.git",
-                "reference": "801d776b4e4c9fce294d800974266c616bb2ce40"
+                "reference": "93019df2df0f8c5c01757ef79f3f077d2cb35b65"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/protocolbuffers/protobuf-php/zipball/801d776b4e4c9fce294d800974266c616bb2ce40",
-                "reference": "801d776b4e4c9fce294d800974266c616bb2ce40",
+                "url": "https://api.github.com/repos/protocolbuffers/protobuf-php/zipball/93019df2df0f8c5c01757ef79f3f077d2cb35b65",
+                "reference": "93019df2df0f8c5c01757ef79f3f077d2cb35b65",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5.0"
+                "php": ">=7.0.0"
             },
             "require-dev": {
-                "phpunit/phpunit": ">=4.8.0"
+                "phpunit/phpunit": ">=5.0.0"
             },
             "suggest": {
                 "ext-bcmath": "Need to support JSON deserialization"
@@ -427,10 +427,9 @@
                 "proto"
             ],
             "support": {
-                "issues": "https://github.com/protocolbuffers/protobuf-php/issues",
-                "source": "https://github.com/protocolbuffers/protobuf-php/tree/v3.5.2"
+                "source": "https://github.com/protocolbuffers/protobuf-php/tree/v3.21.12"
             },
-            "time": "2019-02-25T22:48:13+00:00"
+            "time": "2022-12-14T14:50:49+00:00"
         },
         {
             "name": "grpc/grpc",

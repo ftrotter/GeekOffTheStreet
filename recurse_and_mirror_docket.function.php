@@ -64,11 +64,26 @@ if($argv[0] == basename(__FILE__)){
 
 	function get_one_docket_page($docket_id,$regulation_gov_api_key,$project_id,$bucket_string,$page_num){
 
-		$url = "https://api.data.gov:443/regulations/v3/documents.json?api_key=$regulation_gov_api_key&countsOnly=0&dktid=$docket_id&rpp=1000&po=$page_num";
+		$url = "https://api.regulations.gov/v4/documents?countsOnly=0&dktid=$docket_id&rpp=1000&po=$page_num&api_key=$regulation_gov_api_key";
+
+		$url = "https://api.regulations.gov/v4/documents?filter[docketId]=$docket_id&page[size]=250api_key=$regulation_gov_api_key";
 
 
 		check_throttle(); //this might pause for an hour, to respect rate limit. 
-		$json_text = file_get_contents($url);
+
+// Create a stream
+$opts = [
+    "http" => [
+        "method" => "GET",
+        "header" => "X-Api-Key: $regulation_gov_api_key\r\n"
+    ]
+];
+
+// DOCS: https://www.php.net/manual/en/function.stream-context-create.php
+$context = stream_context_create($opts);
+
+
+		$json_text = file_get_contents($url, false, $context);
                 if($http_response_header[0] == 'HTTP/1.1 429 Too Many Requests'){
                         echo "Wait 70 min\n";
                         sleep(4200);

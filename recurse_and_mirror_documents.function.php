@@ -46,6 +46,9 @@ if($argv[0] == basename(__FILE__)){
 
 		$url = "https://api.data.gov:443/regulations/v3/document.json?api_key=$regulation_gov_api_key&documentId=$document_id";
 
+		$url = "https://api.regulations.gov/v4/documents/$document_id?include=attachments&api_key=$regulation_gov_api_key";
+
+
                 check_throttle(); //this might pause for an hour, to respect rate limit.
 		$json_text = file_get_contents($url);
 		if($http_response_header[0] == 'HTTP/1.1 429 Too Many Requests'){

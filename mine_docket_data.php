@@ -1,4 +1,12 @@
 <?php
+/*
+	Loops over a list of dockets and downloads the raw data... 
+	If you run it from the command line you can provide it with a single docket ID to run against...
+	If you have recently run mine_searches_data.php it will download all of the dockets listed 
+	in the ./data/docket.NPS*.json files
+*/
+	
+
 	require 'vendor/autoload.php';
 	require_once('throttling.function.php');
 
@@ -17,7 +25,7 @@
         $test_project_id = 'geekoffthestreet-200406';
         $test_bucket_id = 'geek_off_the_street';
 
-
+	
 	$dockets = glob('./data/docket.NPS*.json');
 
 	$unique_documents = [];

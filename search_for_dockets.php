@@ -75,7 +75,11 @@
 
 		$ue_search_term = urlencode($search_term);
 
+		//v3 for reference
 		$url = "https://api.data.gov:443/regulations/v3/documents.json?api_key=$regulation_gov_api_key&countsOnly=0&s=$ue_search_term&dct=$this_search_type&cp=C&rpp=1000&po=$page_num&sb=docId&so=ASC";
+
+		//v4 
+		$url = "https://api.regulations.gov/v4/documents?filter[searchTerm]=$ue_search_term&api_key=$regulation_gov_api_key"
 
                 check_throttle(); //this might pause for an hour, to respect rate limit.
 		$json_text = file_get_contents($url);
