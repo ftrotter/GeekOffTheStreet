@@ -23,6 +23,7 @@ Homestead.json
 google_keyfile.json
 *.yaml
 data/*
+py/data/*
 
 
 .DS_Store
