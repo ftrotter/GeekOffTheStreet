@@ -62,7 +62,7 @@ if($argv[0] == basename(__FILE__)){
 
 	}
 
-	function get_one_docket_page($docket_id,$regulation_gov_api_key,$project_id,$bucket_string,$page_num){
+	function get_one_docket_page($docket_id,$regulation_gov_api_key,$project_id,$bucket_string,$page_num, $save_to_dir = "./data/"){
 
 		$url = "https://api.regulations.gov/v4/documents?countsOnly=0&dktid=$docket_id&rpp=1000&po=$page_num&api_key=$regulation_gov_api_key";
 
@@ -93,35 +93,15 @@ $context = stream_context_create($opts);
 
 
 
-		$Storage = new StorageClient([
-    			'projectId' => $project_id,
-		]);
-
-		$Bucket = $Storage->bucket($bucket_string);
-
 		$file_name = "docket.$docket_id.$page_num.json";
 
-		$my_storage_object = $Bucket->upload(
-			$json_text,
-    			[
-        			'predefinedAcl' => 'publicRead',
-        			'name' => $file_name,
-        			'validate' => true,
-    			]
-		);
-	
 		//write it to the local cache.
-		file_put_contents("./data/$file_name",$json_text);
+		file_put_contents("$save_to_dir/$file_name",$json_text);
 	
 		//do we have pdf/html?
-		$json_data = json_decode($json_text,true);
+		//$json_data = json_decode($json_text,true);
 
-		//in case we need data later...
-		//$info = $my_storage_object->info();
-
-		$return_url = "https://storage.googleapis.com/$bucket_string/$file_name";
-
-		return($json_data);
+		//return($json_data);
 
 	}
 

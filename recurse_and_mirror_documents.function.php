@@ -1,45 +1,7 @@
 <?php
 	require 'vendor/autoload.php';
 	require_once('throttling.function.php');
-	use Google\Cloud\Core\ServiceBuilder;
-	use Google\Cloud\Storage\StorageClient;
 	use Symfony\Component\Yaml\Yaml;
-
-	putenv('GOOGLE_APPLICATION_CREDENTIALS=./google_keyfile.json');
-
-if($argv[0] == basename(__FILE__)){
-	
-	$yaml_data = Yaml::parseFile('./regulations.gov.api.yaml');	
-	$regulations_gov_api_key = $yaml_data['regulations_gov_api_key'];
-
-	$test_project_id = 'geekoffthestreet-200406';
-	$test_bucket_id = 'geek_off_the_street_test';
-	$test_document_id = 'DEA-2016-0015-6867'; //this is a comment ...	
-	$test_document_id = 'DEA-2016-0015-0006'; //this is a central document... 
-
-	//then this is test mode, as the file was called directly...
-	$result_url_array = recurse_and_mirror_documents(
-						$test_document_id,
-						$regulations_gov_api_key,
-						$test_project_id,
-						$test_bucket_id);
-
-	$right_answer_urls = [
-		"https://storage.googleapis.com/geek_off_the_street_test/doc.DEA-2016-0015-0006.json",
-		"https://storage.googleapis.com/geek_off_the_street_test/doc.DEA-2016-0015-0006.pdf",
-		"https://storage.googleapis.com/geek_off_the_street_test/doc.DEA-2016-0015-0006.html",	
-		];
-	
-	foreach($result_url_array as $pos => $result_url){
-		$right_answer_url = $right_answer_urls[$pos];
-		if($right_answer_url == $result_url){
-			echo "Success!! got $result_url which is what I expected\n";
-		}else{
-			echo "Fail!! got \n$result_url\nexpected\n$right_answer_url\n";
-		}
-	}
-}
-
 
 
 	function recurse_and_mirror_documents($document_id,$regulation_gov_api_key,$project_id,$bucket_string){
