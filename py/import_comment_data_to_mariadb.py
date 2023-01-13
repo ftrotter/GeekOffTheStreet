@@ -8,7 +8,7 @@ import pandas as pd
 import glob
 import os
 import json
-import pprint
+from pprint import pprint
 import re
 from bs4 import BeautifulSoup,  MarkupResemblesLocatorWarning
 import warnings
@@ -52,9 +52,30 @@ def simplify_comment_string(comment):
     comment = ' '.join(comment.split()) #removes the double spaces in the text
     return(comment)
 
+#We always want to use the same code to generate the REPLACE INTO SQL
+def make_sql_replace_into(comment_id,comment_source,file_name,comment):
+    replace_sql = f"""
+REPLACE INTO {db}.{comment_table} 
+    (`id`, `comment_identifier`, 
+    `comment_source`, `comment_filepath`, `comment_text`) 
+VALUES 
+    (NULL, '{comment_id}', '{comment_source}', '{file_name}', '{comment}');
+
+"""
+
+    return(replace_sql)
+    
+
+
+### Ok all our helper functions are defined. 
+### Basic setup data: 
 data_dir = './data/'
 db = 'geek'
 comment_table = 'comment'
+
+
+###############################
+### JSON processing
 
 file_list = glob.glob(data_dir + '/*.json') # all of the raw comments json
 
@@ -71,17 +92,38 @@ for file_name in file_list:
         if(comment is not None):
             comment = simplify_comment_string(comment)
 
-            replace_sql = f"""
-REPLACE INTO {db}.{comment_table} 
-    (`id`, `comment_identifier`, 
-    `comment_source`, `comment_filepath`, `comment_text`) 
-VALUES 
-    (NULL, '{comment_id}', '{comment_source}', '{file_name}', '{comment}');
-
-"""
-            print(replace_sql)
+            replace_sql = make_sql_replace_into(comment_id,comment_source,file_name,comment)
+            #print(replace_sql)
             conn.execute(replace_sql)
         else:
             print(f"comment is None in {file_name}")
     else:
         print(f"no comment in {file_name}")
+
+    print(f"Finished: {file_name}")
+
+print(f"Done with json processing")
+###############################
+### TXT processing
+
+# Here we cannot interrogarte the JSON data for metadata.. we have metadata in the file name.. or we do not have it. 
+
+
+file_list = glob.glob(data_dir + '/*.txt') + glob.glob(data_dir + '/*.rtf')
+
+for file_name in file_list:
+    just_file_name = os.path.basename(file_name) # just the file name
+
+    file_name_list = just_file_name.split('.')
+    comment_id = file_name_list[0]
+    comment_source = file_name_list[1] # This will usually be something like 'attachment_1' 
+    with open(file_name, 'r') as this_file:
+        comment = this_file.read()
+        comment = simplify_comment_string(comment)
+
+        replace_sql = make_sql_replace_into(comment_id,comment_source,file_name,comment)
+
+        conn.execute(replace_sql)
+
+    print(f"Finished: {file_name}")
+
