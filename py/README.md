@@ -24,7 +24,25 @@ which were uploaded to Google Storage as per Silvias instructions here: https://
 Thank you Silvia! 
 
 Notes
-====================
+==================
+
+The Regulations 
+---------------
+
+The regulations I am bothering with
+https://www.federalregister.gov/documents/2022/10/07/2022-21904/request-for-information-national-directory-of-healthcare-providers-and-services
+
+What others have said about it: 
+https://www.fiercehealthcare.com/hospitals-health-systems/industry-voices-when-it-comes-to-provider-directories-accuracy-hard
+
+https://www.fiercehealthcare.com/providers/cms-seeks-feedback-plans-build-centralized-nationwide-provider-directory
+
+Defactos review
+https://defacto.health/2022/12/09/responses-to-the-cms-rfi-on-national-healthcare-directory/
+
+
+Relevant Text Processing Tools
+--------------------
 Understanding stop words with nltk 
 https://www.geeksforgeeks.org/removing-stop-words-nltk-python/
 
@@ -34,8 +52,6 @@ https://ceptord.net/20181215-polyleven.html
 MariaDB has full text searching:
 https://mariadb.com/kb/en/full-text-index-overview/
 
-The regulations I am bothering with
-https://www.federalregister.gov/documents/2022/10/07/2022-21904/request-for-information-national-directory-of-healthcare-providers-and-services
 
 python difflib has promise:
 Here is a extensive tutorial
