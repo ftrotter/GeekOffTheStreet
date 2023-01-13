@@ -23,5 +23,28 @@ which were uploaded to Google Storage as per Silvias instructions here: https://
 
 Thank you Silvia! 
 
+Notes
+====================
+Understanding stop words with nltk 
+https://www.geeksforgeeks.org/removing-stop-words-nltk-python/
+
+A fast way to calculate the distance between text: 
+https://ceptord.net/20181215-polyleven.html
+
+MariaDB has full text searching:
+https://mariadb.com/kb/en/full-text-index-overview/
+
+The regulations I am bothering with
+https://www.federalregister.gov/documents/2022/10/07/2022-21904/request-for-information-national-directory-of-healthcare-providers-and-services
+
+python difflib has promise:
+Here is a extensive tutorial
+https://coderzcolumn.com/tutorials/python/difflib-simple-way-to-find-out-differences-between-sequences-file-contents-using-python
+
+Here is the basic documentation
+https://docs.python.org/3/library/difflib.html
+
+Could be a faster implementation of diff
+https://pypi.org/project/fast-diff-match/
 
 
