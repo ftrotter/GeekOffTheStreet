@@ -33,6 +33,7 @@ Background
 * new bulk download feature from regulations.gov https://www.regulations.gov/bulkdownload
 * blog post on release of bulk downloads https://www.gsa.gov/blog/2022/10/27/bulk-data-download-is-here-on-regulationsgov
 * the old regulations bulk download https://www.govinfo.gov/bulkdata/CFR (does not include comments at all.. is in XML)
+* All of the bulk data available from govinfo etc https://www.govinfo.gov/bulkdata
 * Federal Register API https://www.federalregister.gov/reader-aids/developer-resources/rest-api 
 * Current regulations.gov API https://open.gsa.gov/api/regulationsgov/
 
